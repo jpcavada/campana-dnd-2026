@@ -1,9 +1,14 @@
 ﻿# Publica la carpeta "publico" de la bóveda de Obsidian en la wiki.
-# Uso (desde PowerShell, en la carpeta de la wiki):
-#   powershell -ExecutionPolicy Bypass -File publicar.ps1
+# Normalmente se ejecuta con PUBLICAR-WIKI.bat, desde la carpeta de la bóveda.
+# Uso manual:
+#   powershell -ExecutionPolicy Bypass -File publicar.ps1 -Boveda "C:\ruta\a\la\boveda"
 
-$boveda = Join-Path $env:USERPROFILE "campana-dnd-2026\publico"
-$wiki   = Join-Path $env:USERPROFILE "wiki-campana"
+param(
+    [string]$Boveda = (Join-Path $env:USERPROFILE "Documents\Valeion\Vaelion")
+)
+
+$boveda = Join-Path (Resolve-Path $Boveda) "publico"
+$wiki   = $PSScriptRoot
 
 # Seguridad: si la carpeta publico no existe o no tiene portada, no se toca nada.
 # (robocopy /MIR deja content idéntica a publico: una carpeta vacía borraría la wiki.)
