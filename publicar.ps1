@@ -1,4 +1,4 @@
-# Publica la carpeta "publico" de la bóveda de Obsidian en la wiki.
+﻿# Publica la carpeta "publico" de la bóveda de Obsidian en la wiki.
 # Uso (desde PowerShell, en la carpeta de la wiki):
 #   powershell -ExecutionPolicy Bypass -File publicar.ps1
 
